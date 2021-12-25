@@ -1,0 +1,26 @@
+#include <iostream>
+#include <regex>
+
+using namespace std;
+
+int main()
+{
+setlocale(LC_ALL, "Russian");
+string str;
+char s1, s2;
+cout « "Введите строку для проверки: ";
+getline(cin, str);
+cout « "\nВведите первый символ диапазона: ";
+cin » s1;
+cout « "\nВведите последний символ диапазона: ";
+cin » s2;
+string pattern;
+if(s2>s1)
+pattern = { '[',s1,'-',s2,']','+'};
+else
+pattern = { '[',s2,'-',s1,']','+' };
+
+cout « regex_match(str.data(), (regex)pattern) « endl;
+
+return 0;
+} 
